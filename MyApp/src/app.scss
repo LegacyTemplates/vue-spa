@@ -1,0 +1,12 @@
+$navbar-background: #41B883;
+$emphasis-text-color: #35495E;
+
+body {
+}
+.navbar {
+    border-radius: 0;
+    background: $navbar-background !important;
+}
+a {
+    color: $emphasis-text-color;
+}
