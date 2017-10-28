@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "MyApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "npm run build-vendor && npm run build",
     "dev": "webpack-dev-server",
     "watch": "webpack --config webpack.config.js --watch",
     "build": "webpack --config webpack.config.js",
@@ -71,7 +72,7 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.17.0",
     "ts-loader": "^2.0.3",
-    "typescript": "^2.5.2",
+    "typescript": "^2.5.3",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
     "vue-style-loader": "^3.0.1",
