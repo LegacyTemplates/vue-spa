@@ -129,6 +129,7 @@ module.exports = (env) => {
     
         plugins: [
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': isDev ? '"development"' : '"production"' }),
+            new webpack.WatchIgnorePlugin([root("wwwroot")]),
             ...when(!isTest, [
                 new webpack.DllReferencePlugin({
                     context: __dirname,

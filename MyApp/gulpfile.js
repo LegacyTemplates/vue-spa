@@ -1,6 +1,5 @@
 (function () {
     var SCRIPTS = {
-        '00-webpack-dev': 'npm run dev',
         '00-webpack-watch': 'npm run watch',
         'webpack-build': 'npm run build',
         'webpack-build-prod': 'npm run build-prod',
