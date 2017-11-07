@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "postinstall": "npm run build-vendor && npm run build",
-    "dev": "webpack-dev-server",
-    "watch": "webpack --config webpack.config.js --watch",
+    "dev": "webpack --config webpack.config.js --watch",
+    "dev-server": "webpack-dev-server",
     "build": "webpack --config webpack.config.js",
     "build-prod": "webpack --config webpack.config.js --env.prod",
     "build-vendor": "webpack --config webpack.config.vendor.js",
     "publish": "webpack --config webpack.config.vendor.js --env.prod && npm run build-prod && dotnet publish -c Release",
     "test": "karma start karma.conf.js",
     "test-watch": "karma start karma.conf.js --no-single-run --auto-watch",
-    "typescript-ref": "cd src && typescript-ref"
+    "update-dtos": "cd src && typescript-ref"
   },
   "karma": {
     "globals": {
