@@ -12,7 +12,7 @@
     "publish": "webpack --config webpack.config.vendor.js --env.prod && npm run build-prod && dotnet publish -c Release",
     "test": "karma start karma.conf.js",
     "test-watch": "karma start karma.conf.js --no-single-run --auto-watch",
-    "update-dtos": "cd src && typescript-ref"
+    "dtos-update": "cd src && typescript-ref"
   },
   "karma": {
     "globals": {
