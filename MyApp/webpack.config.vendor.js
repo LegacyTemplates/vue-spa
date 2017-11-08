@@ -31,7 +31,7 @@ module.exports = (env) => {
         },
         devtool: "source-map",
         output: {
-            path: path.join(__dirname, 'wwwroot', 'dist'),
+            path: root('wwwroot/dist'),
             publicPath: 'dist/',
             filename: '[name].dll.js',
             library: '[name]_[hash]',
