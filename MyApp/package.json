@@ -6,13 +6,13 @@
     "postinstall": "npm run build-vendor && npm run build",
     "dev": "webpack --config webpack.config.js --watch",
     "dev-server": "webpack-dev-server",
+    "dtos": "cd src && typescript-ref",
     "build": "webpack --config webpack.config.js",
     "build-prod": "webpack --config webpack.config.js --env.prod",
     "build-vendor": "webpack --config webpack.config.vendor.js",
     "publish": "webpack --config webpack.config.vendor.js --env.prod && npm run build-prod && dotnet publish -c Release",
     "test": "karma start karma.conf.js",
-    "test-watch": "karma start karma.conf.js --no-single-run --auto-watch",
-    "dtos-update": "cd src && typescript-ref"
+    "test-watch": "karma start karma.conf.js --no-single-run --auto-watch"
   },
   "karma": {
     "globals": {

@@ -19,6 +19,10 @@
     <ProjectReference Include="..\MyApp.ServiceInterface\MyApp.ServiceInterface.csproj" />
     <ProjectReference Include="..\MyApp.ServiceModel\MyApp.ServiceModel.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+  </ItemGroup>
 
   <Target Name="OnFirstUse" BeforeTargets="Build" Condition=" !Exists('wwwroot\dist') ">
     <Exec Command="node --version" ContinueOnError="true"><Output TaskParameter="ExitCode" PropertyName="ErrorCode" /></Exec>

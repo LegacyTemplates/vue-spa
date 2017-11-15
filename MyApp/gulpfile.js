@@ -1,7 +1,7 @@
 (function () {
     var SCRIPTS = {
         'dev': 'npm run dev',
-        'dtos-update': 'npm run dtos-update',
+        'dtos': 'npm run dtos',
         'webpack-build': 'npm run build',
         'webpack-build-prod': 'npm run build-prod',
         'webpack-build-vendor': 'npm run build-vendor',
