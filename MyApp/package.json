@@ -20,15 +20,16 @@
     }
   },
   "dependencies": {
+    "@servicestack/client": "^1.0.0",
     "bootstrap": "^4.0.0-beta.2",
     "es6-shim": "^0.35.3",
     "font-awesome": "^4.7.0",
-    "servicestack-client": "0.0.40",
     "vue": "^2.5.2",
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "@servicestack/cli": "^1.0.0",
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.47",
@@ -66,7 +67,6 @@
     "remap-istanbul": "^0.9.5",
     "run-sequence": "^2.2.0",
     "sass-loader": "^6.0.6",
-    "servicestack-cli": "0.0.7",
     "sinon": "^4.0.2",
     "sinon-chai": "^2.14.0",
     "source-map-loader": "^0.2.3",

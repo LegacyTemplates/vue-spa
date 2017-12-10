@@ -4,7 +4,7 @@ const VENDOR = [
     'bootstrap/dist/css/bootstrap.css',
     'font-awesome/css/font-awesome.css',
     'es6-shim',
-    'servicestack-client',
+    '@servicestack/client',
     'vue',
     'vue-router'
 ];
