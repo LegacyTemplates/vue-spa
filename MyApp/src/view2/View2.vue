@@ -10,6 +10,6 @@ import { Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class View1Component extends Vue {
-    @Prop({ default: "This is View 2" }) message: string;
+    @Prop({ default: 'This is View 2' }) public message: string;
 }
 </script>

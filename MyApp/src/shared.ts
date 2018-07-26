@@ -1,6 +1,6 @@
 import { JsonServiceClient } from '@servicestack/client';
 
-declare var global; //populated from package.json/karma/globals
+declare var global: any; // populated from package.json/karma/globals
 
-export var client = new JsonServiceClient(global.BaseUrl || '/');
+export let client = new JsonServiceClient(global.BaseUrl || '/');
 

@@ -4,8 +4,15 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Custom
+.DS_Store
 dist/
 coverage/
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+# local env files
+.env.local
+.env.*.local
 
 # User-specific files
 *.suo
@@ -27,6 +34,11 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Visual Studio 2015 cache/options directory
 .vs/

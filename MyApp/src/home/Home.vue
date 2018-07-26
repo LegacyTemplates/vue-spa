@@ -1,6 +1,6 @@
 ﻿<template>
     <div class="form-group">
-        <input class="form-control" type="text" placeholder="Your name" v-model="name" />
+        <input class="form-control" type="text" placeholder="Your name" v-model="txtName" />
         <h3 class="result">{{ result }}</h3>
     </div>
 </template>
@@ -13,23 +13,24 @@ import { Hello } from '../dtos';
 
 @Component
 export default class HomeComponent extends Vue {
-    @Prop() name: string;
-    @Prop() result: string;
+    @Prop() public name: string;
+    public txtName: string = this.name;
+    public result: string = '';
 
-    activated() {
-        this.nameChanged(this.name)
+    public activated() {
+        this.nameChanged(this.name);
     }
 
-    @Watch('name')
-    onNameChanged(value:string, oldValue:string) {
+    @Watch('txtName')
+    public onNameChanged(value: string, oldValue: string) {
         this.nameChanged(value);
     }
 
-    async nameChanged(name: string) {
+    public async nameChanged(name: string) {
         if (name) {
-            let request = new Hello();
+            const request = new Hello();
             request.name = name;
-            let r = await client.get(request);
+            const r = await client.get(request);
             this.result = r.result;
         } else {
             this.result = '';

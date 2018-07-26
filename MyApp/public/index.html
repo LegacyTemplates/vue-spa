@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>MyApp</title>
+</head>
+<body>
+  <div hidden>{{#if debug}}<script>{{ '/js/hot-loader.js' | includeFile }}</script>{{/if}}</div>
+  
+  <noscript>
+    <strong>We're sorry but MyApp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+
+  <div id="app"></div>
+
+  <div id="footer" style="text-align:center; position:absolute; bottom:50px; width:100%;">
+    <h4>
+      <img src="<%=require('../src/assets/img/logo.png')%>" />
+      <a href="https://servicestack.net/vs-templates/VueApp">Learn about this Vue VS.NET template</a>
+    </h4>
+    <div>Copyright &copy; {{ now | dateFormat('yyyy') }}</div>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+</html>
