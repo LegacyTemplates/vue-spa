@@ -8,7 +8,7 @@
   <title>MyApp</title>
 </head>
 <body>
-  <div hidden>{{#if debug}}<script>{{ '/js/hot-loader.js' | includeFile }}</script>{{/if}}</div>
+  <div hidden>{{ '/js/hot-loader.js' | ifDebugIncludeScript }}</div>
   
   <noscript>
     <strong>We're sorry but MyApp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>

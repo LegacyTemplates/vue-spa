@@ -25,5 +25,5 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 // returning false here prevents Cypress from failing the test
-Cypress.on('uncaught:exception', (err, runnable) => false);
+// Cypress.on('uncaught:exception', (err, runnable) => false);
   
