@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "webpack --config ./node_modules/@vue/cli-service/webpack.config.js --watch",
+    "dev": "vue-cli-service build --watch",
     "serve": "vue-cli-service serve",
     "dtos": "cd src && typescript-ref",
     "build": "vue-cli-service build",
