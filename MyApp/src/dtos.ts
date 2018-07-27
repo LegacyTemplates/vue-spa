@@ -1,5 +1,5 @@
 /* Options:
-Date: 2018-07-26 06:26:03
+Date: 2018-07-26 07:26:37
 Version: 5.11
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: http://localhost:5000
@@ -39,3 +39,4 @@ export class Hello implements IReturn<HelloResponse>
     public createResponse() { return new HelloResponse(); }
     public getTypeName() { return 'Hello'; }
 }
+
