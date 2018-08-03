@@ -6,7 +6,7 @@ import Home from '@/home/Home.vue';
 describe('Home.vue', () => {
 
     it ('should have correct data', () => {
-        const wrapper = shallowMount(Home);
+        const wrapper = shallowMount(Home) as any;
         expect(wrapper.vm.result).toBe('');
     });
 
@@ -14,7 +14,7 @@ describe('Home.vue', () => {
         const wrapper = shallowMount(Home, {
             propsData: { name: 'Vue' },
         });
-        const vm = wrapper.vm;
+        const vm = wrapper.vm as any;
         expect(vm.name).toBe('Vue');
         expect(vm.$el.querySelector('input')!.type).toBe('text');
         expect(vm.$el.querySelector('h3.result')!.textContent).toBe('');
