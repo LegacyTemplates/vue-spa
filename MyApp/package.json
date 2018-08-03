@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "npm run build",
     "dev": "vue-cli-service build --watch",
     "serve": "vue-cli-service serve",
     "dtos": "cd src && typescript-ref",
