@@ -6,9 +6,9 @@
 
 > Browse [source code](https://github.com/NetCoreTemplates/vue-spa), view live demo [vue-spa.web-templates.io](http://vue-spa.web-templates.io) and install with [dotnet-new](http://docs.servicestack.net/dotnet-new):
 
-    $ npm install -g @servicestack/cli
+    $ dotnet tool install -g web
 
-    $ dotnet-new vue-spa ProjectName
+    $ web new vue-spa ProjectName
 
 ## Development workflow
 
