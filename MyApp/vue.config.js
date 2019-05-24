@@ -1,7 +1,8 @@
 // vue.config.js
 module.exports = {
+    //runtimeCompiler: true,
     outputDir: 'wwwroot',
     devServer: {
-        proxy: 'http://localhost:5000'
+        proxy: 'https://localhost:5001'
     }    
 };

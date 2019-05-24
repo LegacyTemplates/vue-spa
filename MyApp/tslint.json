@@ -21,6 +21,10 @@
     "no-consecutive-blank-lines": false,
     "no-trailing-whitespace": [true, "ignore-comments"],
     "one-line": false,
-    "max-classes-per-file": false
+    "max-classes-per-file": false,
+    "member-access": false,
+    "no-empty-interface": false,
+    "variable-name": [true, "allow-pascal-case", "allow-snake-case"],
+    "max-line-length": [true, 160]
   }
 }

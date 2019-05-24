@@ -8,8 +8,13 @@
   <title>MyApp</title>
 </head>
 <body>
+  {{ 'buttons,svg-auth' | cssIncludes }}
+  {{ 'svg-icons'        | cssIncludes | svgFill('#008299') }}
+
   <i hidden>{{ '/js/hot-fileloader.js' | ifDebugIncludeScript }}</i>
-  
+  <script>NAV_ITEMS = {{ 'GetNavItems' | execService | json }}</script>
+  <script>AUTH = {{ 'Authenticate' | execService({ ifErrorReturn: "null" }) | json }}</script>
+
   <noscript>
     <strong>We're sorry but MyApp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
@@ -18,7 +23,7 @@
 
   <div id="footer" style="text-align:center; position:absolute; bottom:50px; width:100%;">
     <h4>
-      <img src="<%=require('../src/assets/img/logo.png')%>" />
+      <img style="height:42px" src="<%=require('../src/assets/img/logo.svg')%>" />
       <a href="https://servicestack.net/vs-templates/VueApp">Learn about this Vue VS.NET template</a>
     </h4>
     <div>Copyright &copy; {{ now | dateFormat('yyyy') }}</div>
