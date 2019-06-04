@@ -4,7 +4,9 @@ import 'es6-shim';
 
 import Vue from 'vue';
 
-import './controls/index';
+import Controls from '@servicestack/vue';
+Vue.use(Controls);
+
 import App from './App.vue';
 
 import router from './shared/router';

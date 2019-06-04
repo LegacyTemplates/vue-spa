@@ -3,7 +3,7 @@ import Router, { Route } from 'vue-router';
 
 import { store, bus } from './index';
 
-import { Forbidden } from '../controls/index';
+import { Forbidden } from '@servicestack/vue';
 import Home from '../components/Home/index.vue';
 import About from '../components/About.vue';
 import SignIn from '../components/SignIn.vue';

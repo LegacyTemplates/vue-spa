@@ -963,17 +963,6 @@
       "integrity": "sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==",
       "dev": true
     },
-    "@servicestack/cli": {
-      "version": "1.0.10",
-      "resolved": "https://registry.npmjs.org/@servicestack/cli/-/cli-1.0.10.tgz",
-      "integrity": "sha512-8UcfBF46iZT2QtNB39Y8IID4MbTLlBam3tOoXvTfnH3T6458UW4uRizk2/0WTrOaUI3H3pQnur+gCqbb1hYmuw==",
-      "dev": true,
-      "requires": {
-        "ascii-table": "0.0.9",
-        "extract-zip": "^1.6.5",
-        "request": "^2.83.0"
-      }
-    },
     "@servicestack/client": {
       "version": "1.0.23",
       "resolved": "https://registry.npmjs.org/@servicestack/client/-/client-1.0.23.tgz",
@@ -982,6 +971,17 @@
         "es6-shim": "^0.35.4",
         "eventsource": "^1.0.7",
         "fetch-everywhere": "^1.0.5"
+      }
+    },
+    "@servicestack/vue": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/@servicestack/vue/-/vue-1.0.1.tgz",
+      "integrity": "sha512-c28nhG8q7jW5r41yeIhLe5FAR1b/tjyjQQ2oRwYnLjVhiTr5Hc+N1PdhDL+fJXhfB7T5AqLOtVT9EIzkZBl37g==",
+      "requires": {
+        "@servicestack/client": "^1.0.23",
+        "vue": "^2.6.10",
+        "vue-class-component": "^7.1.0",
+        "vue-property-decorator": "^8.1.1"
       }
     },
     "@soda/friendly-errors-webpack-plugin": {
@@ -2133,12 +2133,6 @@
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/arrify/-/arrify-1.0.1.tgz",
       "integrity": "sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=",
-      "dev": true
-    },
-    "ascii-table": {
-      "version": "0.0.9",
-      "resolved": "https://registry.npmjs.org/ascii-table/-/ascii-table-0.0.9.tgz",
-      "integrity": "sha1-BqZgTWpV1L9BqaR9mHLXp42jHnM=",
       "dev": true
     },
     "asn1": {
