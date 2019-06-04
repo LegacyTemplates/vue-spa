@@ -6,7 +6,7 @@
     <div class="col col-4">
       <div v-if="userSession" class="text-right">
         <p class="pt-3">Hi {{userSession.displayName}}!</p>
-        <v-link-button @click={signout} sm primary>Sign Out</v-link-button>
+        <v-link-button @click="signout" sm primary>Sign Out</v-link-button>
       </div>
       <div v-else class="text-right">
         <p class="pt-3">You are not authenticated.</p>

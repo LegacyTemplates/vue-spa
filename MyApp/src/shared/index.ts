@@ -6,7 +6,9 @@ declare let global: any; // populated from package.json/jest
 export const client = new JsonServiceClient('/');
 
 export {
-    errorResponse, errorResponseExcept, splitOnFirst, toPascalCase,
+    errorResponse, errorResponseExcept,
+    splitOnFirst, toPascalCase,
+    queryString,
 } from '@servicestack/client';
 
 export {
@@ -45,17 +47,17 @@ class EventBus extends Vue {
 export const bus = new EventBus({ data: store });
 
 bus.$on('signout', async () => {
-
-    bus.$set(store, 'isAuthenticated', false);
     bus.$set(store, 'userSession', null);
+    bus.$set(store, 'userAttributes', null);
 
     await client.post(new Authenticate({ provider: 'logout' }));
 });
 export const signout = () => bus.$emit('signout');
 
 bus.$on('signin', (userSession: AuthenticateResponse) => {
-    bus.$set(store, 'isAuthenticated', true);
+    const userAttributes = UserAttributes.fromSession(userSession);
     bus.$set(store, 'userSession', userSession);
+    bus.$set(store, 'userAttributes', userAttributes);
 });
 
 export const checkAuth = async () => {
@@ -65,4 +67,3 @@ export const checkAuth = async () => {
         bus.$emit('signout');
     }
 };
-

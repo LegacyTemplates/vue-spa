@@ -1,6 +1,6 @@
 ﻿<template>
     <div class="form-group">
-        <input class="form-control" type="text" placeholder="Your name" v-model="txtName" />
+        <v-input placeholder="Your name" v-model="txtName" />
         <h3 class="result">{{ result }}</h3>
     </div>
 </template>

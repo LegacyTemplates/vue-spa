@@ -1,8 +1,7 @@
 <template>
-    <v-link :to="hashPrefix + href" v-bind="attrs" @click="(e) => $emit('click',e)" 
-            :class="[opt.navItemClass, activeCls, btnCls]">
+    <button v-bind="attrs" @click="(e) => $emit('click',e)" :class="['btn', className, btnCls]">
         <slot></slot>
-    </v-link>
+    </button>
 </template>
 
 <script lang="ts">
@@ -11,10 +10,11 @@ import { NavOptions, LinkButtonDefaults, trimEnd, pick, activeClass, btnClasses 
 import { BootstrapBase, optionProps, sanitizeOptions } from '../core';
 
 @Component
-export class LinkButton extends BootstrapBase {
+export class Button extends BootstrapBase {
     @Prop({ default: '' }) href!: string;
     @Prop({ default: () => (null) }) options!: NavOptions;
     @Prop({ default: '' }) id!: string;
+    @Prop({ default: '' }) className!: string;
     @Prop({ default: '' }) navItemClass!: string;
     @Prop({ default: '' }) exact!: boolean;
     @Prop({ default: null }) click!: () => void;
@@ -32,7 +32,7 @@ export class LinkButton extends BootstrapBase {
     }
 
     protected get attrs() {
-        return pick(this.$props, ['id', 'type', 'name', 'autofocus', 'disabled', 'value', 'click']);
+        return pick(this.$props, ['id', 'type', 'name', 'autofocus', 'disabled', 'value']);
     }
 
     protected get activeCls() {
@@ -43,5 +43,5 @@ export class LinkButton extends BootstrapBase {
         return btnClasses(this.bootstrapClasses);
     }
 }
-export default LinkButton;
+export default Button;
 </script>

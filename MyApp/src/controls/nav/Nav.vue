@@ -8,12 +8,12 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { NavDefaults } from '@servicestack/client';
-import { NavBase, optionProps } from '../core';
+import { NavBase, optionProps, sanitizeOptions } from '../core';
 
 @Component
 export class Nav extends NavBase {
     protected get opt() {
-        return Object.assign(NavDefaults.forNav(this.options), optionProps(this.$props));
+        return sanitizeOptions(Object.assign(NavDefaults.forNav(this.options), optionProps(this.$props)));
     }
 }
 export default Nav;

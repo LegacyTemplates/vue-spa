@@ -1,5 +1,7 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import Router, { Route } from 'vue-router';
+
+import { store, bus } from './index';
 
 import { Forbidden } from '../controls/index';
 import Home from '../components/Home/index.vue';
@@ -21,13 +23,35 @@ export enum Routes {
 
 Vue.use(Router);
 
+function requiresAuth(to: Route, from: Route, next: (to?: string) => void) {
+  if (!store.userSession) {
+    next(`${Routes.SignIn}?redirect=${encodeURIComponent(to.path)}`);
+    return;
+  }
+  next();
+}
+
+function requiresRole(role: string) {
+  return (to: Route, from: Route, next: (to?: string) => void) => {
+    if (!store.userSession) {
+      next(`${Routes.SignIn}?redirect=${encodeURIComponent(to.path)}`);
+    }
+    else if (!store.userSession.roles || store.userSession.roles.indexOf(role) < 0) {
+      next(`${Routes.Forbidden}?role=${encodeURIComponent(role)}`);
+    }
+    else {
+      next();
+    }
+  };
+}
+
 const routes = [
   { path: Routes.Home, component: Home, props: { name: 'Vue' } },
-  { path: Routes.About, component: About },
-  // { path: Routes.SignIn, component: SignIn },
-  // { path: Routes.SignUp, component: SignUp },
-  // { path: Routes.Profile, component: Profile },
-  // { path: Routes.Admin, component: Admin },
+  { path: Routes.About, component: About, props: { message: 'About page' } },
+  { path: Routes.SignIn, component: SignIn },
+  { path: Routes.SignUp, component: SignUp },
+  { path: Routes.Profile, component: Profile, beforeEnter: requiresAuth },
+  { path: Routes.Admin, component: Admin, beforeEnter: requiresRole('Admin') },
   { path: Routes.Forbidden, component: Forbidden },
   { path: '*', redirect: '/' },
 ];
@@ -47,3 +71,10 @@ export const redirect = (path: string) => {
       location.href = path;
   }
 };
+
+bus.$on('signout', async () => {
+  // reload current page after and run route guards after signing out.
+  const to = router.currentRoute;
+  router.replace('/');
+  router.replace(to);
+});

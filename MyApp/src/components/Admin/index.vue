@@ -1,12 +1,25 @@
 <template>
-  <div id="admin">
-    <h1>This is the Admin page</h1>
+  <div id="admin" class="text-center">
+      <div class="svg-female-business svg-8x ml-2"/>
+      <h3>Admin Page</h3>
+      <p>
+          {{user.userName}}
+      </p>
+      <p v-if="user && user.roles" class="roles">
+          <mark v-for="x in user.roles" :key="x">{{x}}</mark>
+      </p>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { store } from '../../shared';
 
-export class Admin extends Vue {}
+@Component
+export class Admin extends Vue {
+  protected get user() {
+    return store.userSession;
+  }
+}
 export default Admin;
 </script>

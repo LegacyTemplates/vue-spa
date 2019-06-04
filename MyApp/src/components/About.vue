@@ -1,12 +1,16 @@
 <template>
   <div id="about">
-    <h1>This is an about page</h1>
+    <div class="svg-users svg-8x ml-2"/>
+    <h3>{{message}}</h3>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export class About extends Vue {}
+@Component
+export class About extends Vue {
+  @Prop({ default: null }) message: string;
+}
 export default About;
 </script>

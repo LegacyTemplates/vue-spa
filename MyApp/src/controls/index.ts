@@ -19,11 +19,11 @@ Vue.component('v-select', Select);
 import CheckBox from './form/CheckBox.vue';
 Vue.component('v-checkbox', CheckBox);
 
+import Button from './form/Button.vue';
+Vue.component('v-button', Button);
+
 import SvgImage from './ui/SvgImage.vue';
 Vue.component('v-svg', SvgImage);
-
-import SvgClass from './ui/SvgClass.vue';
-Vue.component('i-svg', SvgClass);
 
 import Link from './nav/Link.vue';
 Vue.component('v-link', Link);
@@ -40,10 +40,15 @@ Vue.component('v-navbar', Navbar);
 import NavLink from './nav/NavLink.vue';
 Vue.component('v-nav-link', NavLink);
 
+import NavButtonGroup from './nav/NavButtonGroup.vue';
+Vue.component('v-nav-button-group', NavButtonGroup);
+
+import NavLinkButton from './nav/NavLinkButton.vue';
+Vue.component('v-nav-link-button', NavLinkButton);
+
 export {
     Forbidden,
     SvgImage,
-    SvgClass,
     Link,
     LinkButton,
     Nav,

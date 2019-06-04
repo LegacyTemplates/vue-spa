@@ -1,48 +1,81 @@
 import Vue from 'vue';
-import { Prop } from 'vue-property-decorator';
-import { NavItem, NavOptions } from '@servicestack/client';
+import { Component, Prop } from 'vue-property-decorator';
+import { NavItem, NavOptions, pick } from '@servicestack/client';
 
 export class BootstrapBase extends Vue {
-    primary?: boolean;
-    'outline-primary'?: boolean;
-    secondary?: boolean;
-    'outline-secondary'?: boolean;
-    success?: boolean;
-    'outline-success'?: boolean;
-    info?: boolean;
-    'outline-info'?: boolean;
-    warning?: boolean;
-    'outline-warning'?: boolean;
-    danger?: boolean;
-    'outline-danger'?: boolean;
-    light?: boolean;
-    'outline-light'?: boolean;
-    dark?: boolean;
-    'outline-dark'?: boolean;
+    @Prop({ default: false }) primary?: boolean;
+    @Prop({ default: false }) outlinePrimary?: boolean;
+    @Prop({ default: false }) secondary?: boolean;
+    @Prop({ default: false }) outlineSecondary?: boolean;
+    @Prop({ default: false }) success?: boolean;
+    @Prop({ default: false }) outlineSuccess?: boolean;
+    @Prop({ default: false }) info?: boolean;
+    @Prop({ default: false }) outlineInfo?: boolean;
+    @Prop({ default: false }) warning?: boolean;
+    @Prop({ default: false }) outlineWarning?: boolean;
+    @Prop({ default: false }) danger?: boolean;
+    @Prop({ default: false }) outlineDanger?: boolean;
+    @Prop({ default: false }) light?: boolean;
+    @Prop({ default: false }) outlineLight?: boolean;
+    @Prop({ default: false }) dark?: boolean;
+    @Prop({ default: false }) outlineDark?: boolean;
 
-    lg?: boolean;
-    sm?: boolean;
-    xs?: boolean;
+    @Prop({ default: false }) lg?: boolean;
+    @Prop({ default: false }) md?: boolean;
+    @Prop({ default: false }) sm?: boolean;
+    @Prop({ default: false }) xs?: boolean;
 
-    block?: boolean;
-    vertical?: boolean;
-    horizontal?: boolean;
+    @Prop({ default: false }) block?: boolean;
+    @Prop({ default: false }) vertical?: boolean;
+    @Prop({ default: false }) horizontal?: boolean;
+
+    protected get bootstrapClasses() {
+        const props: any = {
+            'primary': this.primary,
+            'outline-primary': this.outlinePrimary,
+            'secondary': this.secondary,
+            'outline-secondary': this.outlineSecondary,
+            'success': this.success,
+            'outline-success': this.outlineSuccess,
+            'info': this.info,
+            'outline-info': this.outlineInfo,
+            'warning': this.warning,
+            'outline-warning': this.outlineWarning,
+            'danger': this.danger,
+            'outline-danger': this.outlineDanger,
+            'light': this.light,
+            'outline-light': this.outlineLight,
+            'dark': this.dark,
+            'outline-dark': this.outlineDark,
+            'lg': this.lg,
+            'md': this.md,
+            'sm': this.sm,
+            'xs': this.xs,
+            'block': this.block,
+        };
+        const ret: any = {};
+        Object.keys(props).forEach((k: any) => {
+            if (props[k] !== false) {
+                ret[k] = props[k] || true;
+            }
+        });
+        return ret;
+    }
 }
 
 export class NavBootstrapBase extends BootstrapBase {
-    items: NavItem[];
-
-    options?: NavOptions;
-    attributes?: string[];
-    activePath?: string;
-    baseHref?: string;
-    navClass?: string;
-    navItemClass?: string;
-    navLinkClass?: string;
-    childNavItemClass?: string;
-    childNavLinkClass?: string;
-    childNavMenuClass?: string;
-    childNavMenuItemClass?: string;
+    @Prop({ default: () => ([]) }) items!: NavItem[];
+    @Prop({ default: () => (null) }) options?: NavOptions;
+    @Prop({ default: () => ([]) }) attributes?: string[];
+    @Prop({ default: null }) activePath?: string;
+    @Prop({ default: null }) baseHref?: string;
+    @Prop({ default: null }) navClass?: string;
+    @Prop({ default: null }) navItemClass?: string;
+    @Prop({ default: null }) navLinkClass?: string;
+    @Prop({ default: null }) childNavItemClass?: string;
+    @Prop({ default: null }) childNavLinkClass?: string;
+    @Prop({ default: null }) childNavMenuClass?: string;
+    @Prop({ default: null }) childNavMenuItemClass?: string;
 }
 
 export class NavBase extends Vue {
@@ -65,10 +98,17 @@ const OptionKeys = ['attributes', 'activePath', 'baseHref', 'navClass', 'navItem
                     'childNavItemClass', 'childNavLinkClass', 'childNavMenuClass', 'childNavMenuItemClass' ];
 export function optionProps(props: any) {
     const to: any = {};
-    for (const key in OptionKeys) {
+    for (const key of OptionKeys) {
         if (props[key]) {
             to[key] = props[key];
         }
     }
     return to;
+}
+
+export function sanitizeOptions(opt: any) {
+    if (!opt.baseHref) {
+        opt.baseHref = '';
+    }
+    return opt;
 }

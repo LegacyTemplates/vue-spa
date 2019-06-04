@@ -1,48 +1,57 @@
 <template>
-<div>
-    <h3>Sign In</h3>
-    
-    <form ref="form" @submit.prevent="submit" :class="{ error:responseStatus, loading }" >
-        <div class="form-group">
-            <ErrorSummary except="userName,password" :responseStatus="responseStatus" />
+<div class="row">
+    <div class="col-4">
+        <h3>Sign In</h3>
+        
+        <form ref="form" @submit.prevent="submit" :class="{ error:responseStatus, loading }" >
+            <div class="form-group">
+                <error-summary except="userName,password" :responseStatus="responseStatus" />
+            </div>
+            <div class="form-group">
+                <v-input id="userName" v-model="userName" placeholder="Username" :responseStatus="responseStatus" 
+                         label="Email"  help="Email you signed up with" />
+            </div>
+            <div class="form-group">
+                <v-input type="password" id="password" v-model="password" placeholder="Password" :responseStatus="responseStatus" 
+                         label="Password"  help="6 characters or more" />
+            </div>
+            <div class="form-group">
+                <v-checkbox id="rememberMe" v-model="rememberMe" :responseStatus="responseStatus">
+                    Remember Me
+                </v-checkbox>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                <v-link-button href="/signup" lg outline-secondary class="ml-2">Register New User</v-link-button>
+            </div>
+        </form>
+        
+        <div class="pt-3">
+            <h5>Quick Login:</h5>
+            <p class="btn-group">
+                <v-link-button outline-info sm @click="switchUser('admin@email.com')">admin@email.com</v-link-button>
+                <v-link-button outline-info sm @click="switchUser('new@user.com')">new@user.com</v-link-button>
+            </p>
         </div>
-        <div class="form-group">
-            <Input id="userName" v-model="userName" placeholder="Username" :responseStatus="responseStatus" 
-                label="Email"  help="Email you signed up with" />
+    </div>
+
+    <div class="col-5">
+        <div class="row justify-content-end mt-5">
+            <div class="col col-8">
+                <v-nav-button-group :items="store.nav.navItemsMap.auth" :attributes="store.userAttributes" :baseHref="store.nav.baseUrl" block lg />
+            </div>
         </div>
-        <div class="form-group">
-            <Input type="password" id="password" v-model="password" placeholder="Password" :responseStatus="responseStatus" 
-                label="Password"  help="6 characters or more" />
-        </div>
-        <div class="form-group">
-            <CheckBox id="rememberMe" v-model="rememberMe" :responseStatus="responseStatus">
-                Remember Me
-            </CheckBox>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-lg btn-primary">Login</button>
-        </div>
-        <div class="form-group">
-            <router-link class="btn btn-outline-primary" to="/signup">Register New User</router-link>
-        </div>
-    </form>
-    
-    <div class="pt-3">
-        <b>Quick Login:</b>
-        <p class="pt-1">
-            <a class="btn btn-outline-info btn-sm" href="javascript:void(0)" @click.prevent="switchUser('admin@email.com')">admin@email.com</a>
-            <a class="btn btn-outline-info btn-sm" href="javascript:void(0)" @click.prevent="switchUser('new@user.com')">new@user.com</a>
-        </p>
     </div>
 </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from 'vue-property-decorator';
-import { bus, client } from '../shared';
+import { Vue, Component, Watch, Prop } from 'vue-property-decorator';
+import { store, bus, client } from '../shared';
 import { Authenticate } from '../shared/dtos';
-import { redirect } from '../shared/router';
+import { redirect, Routes } from '../shared/router';
 
+@Component
 export class SignIn extends Vue {
 
     userName = '';
@@ -50,6 +59,8 @@ export class SignIn extends Vue {
     rememberMe = true;
     loading = false;
     responseStatus = null;
+
+    get store() { return store; }
 
     async submit() {
         try {
@@ -64,7 +75,7 @@ export class SignIn extends Vue {
             }));
             bus.$emit('signin', response);
 
-            redirect(this.$props.redirect || '/');
+            redirect(this.$route.query.redirect as string || Routes.Home);
 
         } catch (e) {
             this.responseStatus = e.responseStatus || e;

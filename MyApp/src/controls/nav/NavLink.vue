@@ -1,11 +1,11 @@
 <template>
-    <li :class="[item.className, navItemCls]">
-        <v-link :to="opt.baseHref + item.href" :class="[navLinkCls, activeCls]" :id="id" :attrs="childProps">
+    <li v-if="show" :class="[item.className, navItemCls]">
+        <v-link :to="opt.baseHref + item.href" :class="[navLinkCls, activeCls]" :id="id" :attrs="childProps" :exact="item.exact">
             {{item.label}}
         </v-link>
         <div v-for="x in item.children" :key="x.href || x.label" :class="opt.childNavMenuClass" :aria-labelledby="id">
             <div v-if="x.label === '-'" class="dropdown-divider" />
-            <v-link v-else :to="opt.baseHref + x.href" :class="[opt.childNavMenuItemClass, activeClassNav(x, opt.activePath)]">
+            <v-link v-else :to="opt.baseHref + x.href" :class="[opt.childNavMenuItemClass, activeClassNav(x, useActivePath)]" :exact="x.exact">
                 {{x.label}}
             </v-link>
         </div>
@@ -17,7 +17,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import {
     NavItem, NavOptions, NavDefaults, safeVarName, activeClassNav,
 } from '@servicestack/client';
-import { NavBase } from '../core';
+import { NavBase, sanitizeOptions } from '../core';
 
 @Component
 export class NavLink extends Vue {
@@ -28,7 +28,15 @@ export class NavLink extends Vue {
     @Prop({ default: null }) navLinkClass!: string;
 
     protected get opt() {
-        return NavDefaults.forNav(this.options);
+        return sanitizeOptions(NavDefaults.forNav(this.options));
+    }
+
+    protected get show() {
+        return !(this.item == null || !NavDefaults.showNav(this.item, this.opt.attributes));
+    }
+
+    protected get useActivePath() {
+        return this.activePath || this.opt.activePath || this.$route.path || '';
     }
 
     protected get hasChildren() {
@@ -61,7 +69,7 @@ export class NavLink extends Vue {
     protected get id() { return this.item.id || this.hasChildren ? safeVarName(this.item.label) : null; }
 
     protected get activeCls() {
-        return activeClassNav(this.item, this.opt.activePath || '');
+        return activeClassNav(this.item, this.useActivePath);
     }
 }
 export default NavLink;
