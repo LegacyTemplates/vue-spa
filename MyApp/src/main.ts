@@ -1,12 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css';
 import './app.scss';
 import 'es6-shim';
 
 import Vue from 'vue';
+
+import Controls from '@servicestack/vue';
+Vue.use(Controls);
+
 import App from './App.vue';
 
-import router from './router';
+import router from './shared/router';
 
 const app = new Vue({
     el: '#app',

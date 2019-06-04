@@ -1,6 +1,6 @@
 ﻿<template>
     <div class="form-group">
-        <input class="form-control" type="text" placeholder="Your name" v-model="txtName" />
+        <v-input placeholder="Your name" v-model="txtName" />
         <h3 class="result">{{ result }}</h3>
     </div>
 </template>
@@ -8,16 +8,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop, Watch } from 'vue-property-decorator';
-import { client } from '../shared';
-import { Hello } from '../dtos';
+import { client } from '../../shared';
+import { Hello } from '../../shared/dtos';
 
 @Component
-export default class HomeComponent extends Vue {
+export class HelloApi extends Vue {
     @Prop() public name: string;
     public txtName: string = this.name;
     public result: string = '';
 
-    public activated() {
+    public mounted() {
         this.nameChanged(this.name);
     }
 
@@ -37,10 +37,11 @@ export default class HomeComponent extends Vue {
         }
     }
 }
+export default HelloApi;
 </script>
 
 <style lang="scss">
-@import '../app.scss';
+@import '../../app.scss';
 
 .result {
     margin: 10px;
