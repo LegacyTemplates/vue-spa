@@ -56,12 +56,11 @@ const routes = [
   { path: '*', redirect: '/' },
 ];
 
-const router = new Router ({
+export const router = new Router ({
     mode: 'history',
     linkActiveClass: 'active',
     routes,
 });
-export default router;
 
 export const redirect = (path: string) => {
   const externalUrl = path.indexOf('://') >= 0;

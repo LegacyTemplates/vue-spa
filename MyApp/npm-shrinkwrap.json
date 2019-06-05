@@ -974,9 +974,9 @@
       }
     },
     "@servicestack/vue": {
-      "version": "1.0.1",
-      "resolved": "https://registry.npmjs.org/@servicestack/vue/-/vue-1.0.1.tgz",
-      "integrity": "sha512-c28nhG8q7jW5r41yeIhLe5FAR1b/tjyjQQ2oRwYnLjVhiTr5Hc+N1PdhDL+fJXhfB7T5AqLOtVT9EIzkZBl37g==",
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/@servicestack/vue/-/vue-1.0.2.tgz",
+      "integrity": "sha512-2RJRlIJgv1zdyQ4829zvqd+yfRuolWp3toDwp2eLWVPejHPXb7lfOD98SCFGzjx4OadBR5oOVgB5ZA4QNr5Gzw==",
       "requires": {
         "@servicestack/client": "^1.0.23",
         "vue": "^2.6.10",

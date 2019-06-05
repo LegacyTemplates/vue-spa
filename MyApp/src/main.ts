@@ -9,7 +9,7 @@ Vue.use(Controls);
 
 import App from './App.vue';
 
-import router from './shared/router';
+import { router } from './shared/router';
 
 const app = new Vue({
     el: '#app',

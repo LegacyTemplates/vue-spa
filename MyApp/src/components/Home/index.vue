@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { HelloApi } from './HelloApi.vue'; // @ is an alias to /src
+import { HelloApi } from './HelloApi.vue';
 import { store, signout } from '../../shared';
 
 @Component({

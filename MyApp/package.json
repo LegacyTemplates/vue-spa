@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@servicestack/client": "^1.0.23",
-    "@servicestack/vue": "^1.0.1",
+    "@servicestack/vue": "^1.0.2",
     "bootstrap": "^4.3.1",
     "es6-shim": "^0.35.5",
     "vue": "^2.6.10",
