@@ -8,7 +8,7 @@ using ServiceStack.FluentValidation;
 
 namespace MyApp
 {
-    [Priority(-2)] // Run before ConfigureAuthRepository
+    [Priority(-100)] // Run before ConfigureAuthRepository
     public class ConfigureAuth : IConfigureAppHost
     {
         public void Configure(IAppHost appHost)
