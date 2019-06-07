@@ -62,7 +62,13 @@ export class SignIn extends Vue {
 
     get store() { return store; }
 
-    async submit() {
+    protected mounted() {
+        if (this.store.userSession != null) {
+            redirect(this.$route.query.redirect as string || Routes.Home);
+        }
+    }
+
+    protected async submit() {
         try {
             this.loading = true;
             this.responseStatus = null;
@@ -84,7 +90,7 @@ export class SignIn extends Vue {
         }
     }
 
-    switchUser(email: string) {
+    protected switchUser(email: string) {
         this.userName = email;
         this.password = 'p@55wOrd';
     }
