@@ -58,7 +58,7 @@ namespace MyApp
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), HostingEnvironment.IsDevelopment()),
             });
 
-            Svg.Load(VirtualFiles.GetDirectory("/src/assets/svg"));
+            Svg.Load(ContentRootDirectory.GetDirectory("/src/assets/svg"));
         }
     }
 }
