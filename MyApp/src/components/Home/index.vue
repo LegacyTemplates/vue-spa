@@ -1,9 +1,12 @@
 <template>
   <div class="row justify-content-between">
-    <div class="col col-4">
-        <HelloApi :name="name" />
+    <div class="col col-1">
+      <i class="svg-home svg-7x"></i>
     </div>
-    <div class="col col-4">
+    <div class="col col-5 mt-3">
+      <HelloApi :name="name" />
+    </div>
+    <div class="col col-5">
       <div v-if="userSession" class="text-right">
         <p class="pt-3">Hi {{userSession.displayName}}!</p>
         <v-link-button @click="signout" sm primary>Sign Out</v-link-button>
