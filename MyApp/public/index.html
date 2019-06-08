@@ -8,8 +8,8 @@
   <title>MyApp</title>
 </head>
 <body>
-  {{ 'buttons,svg-auth' | cssIncludes }}
-  {{ 'svg-icons'        | cssIncludes | svgFill('#41B883') }}
+  {{ 'buttons,svg-auth,app' | cssIncludes }}
+  {{ 'svg-icons'            | cssIncludes | svgFill('#41B883') }}
 
   <i hidden>{{ '/js/hot-fileloader.js' | ifDebugIncludeScript }}</i>
   <script>NAV_ITEMS = {{ 'GetNavItems' | execService | json }}</script>
@@ -23,8 +23,8 @@
 
   <div id="footer" style="text-align:center; position:absolute; bottom:50px; width:100%;">
     <h4>
-      <img style="height:42px" src="<%=require('../src/assets/img/logo.svg')%>" />
-      <a href="https://servicestack.net/vs-templates/VueApp">Learn about this Vue VS.NET template</a>
+      <img style="height:42px" src="{{ 'servicestack'.svgDataUri('#333') }}" />
+      <a href="https://github.com/NetCoreTemplates/vue-spa">Learn about this Vue template</a>
     </h4>
     <div>Copyright &copy; {{ now | dateFormat('yyyy') }}</div>
   </div>
