@@ -6,7 +6,7 @@
                 <i class="svg-logo svg-lg mr-1"></i>
                 <span class="align-middle">MyApp</span>
             </router-link>
-            <v-navbar :items="store.nav.results" :attributes="store.userAttributes" />
+            <navbar :items="store.nav.results" :attributes="store.userAttributes" />
         </div>
     </nav>
 

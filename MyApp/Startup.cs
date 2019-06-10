@@ -59,6 +59,7 @@ namespace MyApp
             });
 
             Svg.Load(ContentRootDirectory.GetDirectory("/src/assets/svg"));
+            Svg.CssFillColor["svg-icons"] = "#2f495e";
         }
     }
 }
