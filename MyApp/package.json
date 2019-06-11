@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@servicestack/client": "^1.0.23",
-    "@servicestack/vue": "^1.0.6",
+    "@servicestack/vue": "^1.0.7",
     "bootstrap": "^4.3.1",
     "es6-shim": "^0.35.5",
     "vue": "^2.6.10",
@@ -51,6 +51,10 @@
     "not ie <= 8"
   ],
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/bin/"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -62,8 +66,12 @@
     "transform": {
       "^.+\\.vue$": "vue-jest",
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest",
+      "^@servicestack/vue$": "ts-jest"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(babel-jest|jest-vue-preprocessor)/)"
+    ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
@@ -73,6 +81,6 @@
     "testMatch": [
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
-    "testURL": "http://localhost:5000/"
+    "testURL": "https://localhost:5001/"
   }
 }

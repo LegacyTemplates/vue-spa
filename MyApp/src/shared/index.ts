@@ -18,10 +18,7 @@ export {
     Hello, HelloResponse,
 } from './dtos';
 
-import {
-    ResponseStatus, ResponseError,
-    Authenticate, AuthenticateResponse,
-} from './dtos';
+import { Authenticate, AuthenticateResponse } from './dtos';
 
 export enum Roles {
   Admin = 'Admin',
@@ -36,7 +33,7 @@ interface State {
   permissions?: string[];
 }
 export const store: State = {
-  nav: global.NAV_ITEMS as GetNavItemsResponse,
+  nav: global.NAV_ITEMS as GetNavItemsResponse || { results: [], navItemsMap: {} },
   userSession: global.AUTH as AuthenticateResponse,
   userAttributes: UserAttributes.fromSession(global.AUTH),
 };

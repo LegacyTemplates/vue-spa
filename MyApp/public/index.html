@@ -8,12 +8,16 @@
   <title>MyApp</title>
 </head>
 <body>
+
+  <i hidden>
   {{ 'buttons,svg-auth,app' | cssIncludes }}
   {{ 'svg-icons'            | cssIncludes | svgFill('#41B883') }}
-
-  <i hidden>{{ '/js/hot-fileloader.js' | ifDebugIncludeScript }}</i>
-  <script>NAV_ITEMS = {{ 'GetNavItems' | execService | json }}</script>
-  <script>AUTH = {{ 'Authenticate' | execService({ ifErrorReturn: "null" }) | json }}</script>
+  {{#script}}
+    {{ '/js/hot-fileloader.js'    | onlyIfDebug | includeFile }}
+    NAV_ITEMS = {{ 'GetNavItems'  | execService | json }};
+    AUTH      = {{ 'Authenticate' | execService({ ifErrorReturn: "null" }) | json }};
+  {{/script}}
+  </i>
 
   <noscript>
     <strong>We're sorry but MyApp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
