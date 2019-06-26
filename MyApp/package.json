@@ -15,7 +15,7 @@
     "e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "@servicestack/client": "^1.0.23",
+    "@servicestack/client": "^1.0.29",
     "@servicestack/vue": "^1.0.7",
     "bootstrap": "^4.3.1",
     "es6-shim": "^0.35.5",
