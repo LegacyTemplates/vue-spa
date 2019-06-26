@@ -1,15 +1,28 @@
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using Funq;
 using ServiceStack;
 using ServiceStack.Auth;
-using ServiceStack.Caching;
-using ServiceStack.Configuration;
 using ServiceStack.FluentValidation;
 
 namespace MyApp
 {
-    [Priority(-100)] // Run before ConfigureAuthRepository
+    // Add any additional metadata properties you want to store in the Users Typed Session
+    public class CustomUserSession : AuthUserSession 
+    {
+    }
+    
+    // Custom Validator to add custom validators to built-in /register Service requiring DisplayName and ConfirmPassword
+    public class CustomRegistrationValidator : RegistrationValidator
+    {
+        public CustomRegistrationValidator()
+        {
+            RuleSet(ApplyTo.Post, () =>
+            {
+                RuleFor(x => x.DisplayName).NotEmpty();
+                RuleFor(x => x.ConfirmPassword).NotEmpty();
+            });
+        }
+    }
+
     public class ConfigureAuth : IConfigureAppHost, IConfigureServices
     {
         public void Configure(IServiceCollection services)
@@ -32,24 +45,6 @@ namespace MyApp
 
             //override the default registration validation with your own custom implementation
             appHost.RegisterAs<CustomRegistrationValidator, IValidator<Register>>();
-        }
-    }
-    
-    // Add any additional metadata properties you want to store in the Users Typed Session
-    public class CustomUserSession : AuthUserSession 
-    {
-    }
-    
-    // Custom Validator to add custom validators to built-in /register Service requiring DisplayName and ConfirmPassword
-    public class CustomRegistrationValidator : RegistrationValidator
-    {
-        public CustomRegistrationValidator()
-        {
-            RuleSet(ApplyTo.Post, () =>
-            {
-                RuleFor(x => x.DisplayName).NotEmpty();
-                RuleFor(x => x.ConfirmPassword).NotEmpty();
-            });
         }
     }
 }
