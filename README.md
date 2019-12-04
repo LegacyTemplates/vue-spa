@@ -1,6 +1,6 @@
 # vue-spa
 
-.NET Core 2.1 Vue Webpack App Template
+.NET Core 3.1 Vue Webpack App Template
 
 [![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/vue-spa.png)](http://vue-spa.web-templates.io/)
 
@@ -56,7 +56,7 @@ When your App is ready to deploy, run the `publish` npm (or Gulp) script to pack
 
     $ npm run publish
 
-Which will create a production build of your App which then runs `dotnet publish -c Release` to Publish a Release build of your App in the `/bin/netcoreapp2.1/publish` folder which can then copied to remote server or an included in a Docker container to deploy your App.
+Which will create a production build of your App which then runs `dotnet publish -c Release` to Publish a Release build of your App in the `/bin/netcoreapp3.1/publish` folder which can then copied to remote server or an included in a Docker container to deploy your App.
 
 ### Testing
 
