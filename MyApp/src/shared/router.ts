@@ -75,5 +75,5 @@ bus.$on('signout', async () => {
   // reload current page after and run route guards after signing out.
   const to = router.currentRoute;
   router.replace('/');
-  router.replace(to);
+  router.replace(to.fullPath);
 });
