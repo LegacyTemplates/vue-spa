@@ -1,10 +1,11 @@
 /* Options:
-Date: 2019-05-24 01:38:46
-Version: 5.51
+Date: 2020-06-13 21:57:44
+Version: 5.91
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
 
 //GlobalNamespace: 
+//MakePropertiesOptional: False
 //AddServiceStackTypes: True
 //AddResponseStatus: False
 //AddImplicitVersion: 
@@ -42,16 +43,16 @@ export interface IPost
 // @DataContract
 export class ResponseError
 {
-    // @DataMember(Order=1, EmitDefaultValue=false)
+    // @DataMember(Order=1)
     public errorCode: string;
 
-    // @DataMember(Order=2, EmitDefaultValue=false)
+    // @DataMember(Order=2)
     public fieldName: string;
 
-    // @DataMember(Order=3, EmitDefaultValue=false)
+    // @DataMember(Order=3)
     public message: string;
 
-    // @DataMember(Order=4, EmitDefaultValue=false)
+    // @DataMember(Order=4)
     public meta: { [index: string]: string; };
 
     public constructor(init?: Partial<ResponseError>) { (Object as any).assign(this, init); }
@@ -206,8 +207,6 @@ export class Hello implements IReturn<HelloResponse>
 
 // @Route("/auth")
 // @Route("/auth/{provider}")
-// @Route("/authenticate")
-// @Route("/authenticate/{provider}")
 // @DataContract
 export class Authenticate implements IReturn<AuthenticateResponse>, IPost
 {
@@ -230,10 +229,7 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public password: string;
 
     // @DataMember(Order=7)
-    public rememberMe: boolean;
-
-    // @DataMember(Order=8)
-    public continue: string;
+    public rememberMe?: boolean;
 
     // @DataMember(Order=9)
     public errorView: string;
@@ -257,7 +253,7 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public cnonce: string;
 
     // @DataMember(Order=16)
-    public useTokenCookie: boolean;
+    public useTokenCookie?: boolean;
 
     // @DataMember(Order=17)
     public accessToken: string;
@@ -266,6 +262,9 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public accessTokenSecret: string;
 
     // @DataMember(Order=19)
+    public scope: string;
+
+    // @DataMember(Order=20)
     public meta: { [index: string]: string; };
 
     public constructor(init?: Partial<Authenticate>) { (Object as any).assign(this, init); }
@@ -341,10 +340,7 @@ export class Register implements IReturn<RegisterResponse>, IPost
     public confirmPassword: string;
 
     // @DataMember(Order=8)
-    public autoLogin: boolean;
-
-    // @DataMember(Order=9)
-    public continue: string;
+    public autoLogin?: boolean;
 
     // @DataMember(Order=10)
     public errorView: string;
