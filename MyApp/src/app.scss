@@ -11,6 +11,9 @@ body {
     border-radius: 0;
     background: $navbar-background !important;
 }
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
 a {
     color: $emphasis-text-color;
 }
