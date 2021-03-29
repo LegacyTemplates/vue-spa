@@ -7,11 +7,6 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
  && echo "npm version: $(npm --version)" \
  && rm -rf /var/lib/apt/lists/*
 
-COPY MyApp/package.json .
-COPY MyApp/npm-shrinkwrap.json .
-
-RUN npm --prefix MyApp install
-
 COPY . .
 RUN dotnet restore
 
