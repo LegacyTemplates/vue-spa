@@ -5041,20 +5041,13 @@
       "dev": true
     },
     "@servicestack/client": {
-      "version": "1.0.51",
-      "resolved": "https://registry.npmjs.org/@servicestack/client/-/client-1.0.51.tgz",
-      "integrity": "sha512-U/gC41o1hU7gqFPp75+rNTFg1VPZ7Xjqztt4u4owMznOj8FH3POWW86fyCbKYULXoEkieHzfMnETetkt9ekSLA==",
+      "version": "1.0.53",
+      "resolved": "https://registry.npmjs.org/@servicestack/client/-/client-1.0.53.tgz",
+      "integrity": "sha512-WnX558VrNsVa9EUuGeH5R4W186xfRuzO6z1DkLZLZNdZfZyZDZk4rEkIeFOw4TzHP6rH+0M8YOTM4mdhlbQsng==",
       "requires": {
         "cross-fetch": "^3.1.0",
         "es6-shim": "^0.35.6",
         "eventsource": "^1.0.7"
-      },
-      "dependencies": {
-        "es6-shim": {
-          "version": "0.35.6",
-          "resolved": "https://registry.npmjs.org/es6-shim/-/es6-shim-0.35.6.tgz",
-          "integrity": "sha512-EmTr31wppcaIAgblChZiuN/l9Y7DPyw8Xtbg7fIVngn6zMW+IEBJDJngeKC3x6wr0V/vcA2wqeFnaw1bFJbDdA=="
-        }
       }
     },
     "@servicestack/vue": {
