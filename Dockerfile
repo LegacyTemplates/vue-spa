@@ -11,6 +11,7 @@ COPY . .
 RUN dotnet restore
 
 WORKDIR /app/MyApp
+RUN npm cache clean --force
 RUN dotnet publish -c release -o /out --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
