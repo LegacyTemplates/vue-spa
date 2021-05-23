@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "module": "esnext",
     "strict": true,
     "strictPropertyInitialization": false,
@@ -15,6 +15,7 @@
     "baseUrl": ".",
     "types": [
       "node",
+      "webpack-env",
       "jest"
     ],
     "paths": {
@@ -23,7 +24,7 @@
       ]
     },
     "lib": [
-      "es2015",
+      "esnext",
       "dom",
       "dom.iterable",
       "scripthost"

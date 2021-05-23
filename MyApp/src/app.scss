@@ -17,3 +17,13 @@ body {
 a {
     color: $emphasis-text-color;
 }
+.nav-button-group {
+    display: flex;
+    flex-direction: column;
+}
+.btn-block a {
+    display: block;
+}
+.nav-button-group .btn-block {
+    margin-bottom: .25rem;
+}

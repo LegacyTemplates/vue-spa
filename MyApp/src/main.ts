@@ -11,6 +11,8 @@ import App from './App.vue';
 
 import { router } from './shared/router';
 
+Vue.config.productionTip = false;
+
 const app = new Vue({
     el: '#app',
     render: (h) => h(App),

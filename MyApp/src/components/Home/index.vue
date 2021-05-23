@@ -15,7 +15,7 @@
       <div v-else class="text-right">
         <p class="pt-3">You are not authenticated.</p>
         <link-button href="/signin" sm primary>Sign In</link-button>
-        <link-button href="/signup" sm outline-secondary class="ml-2">Register New User</link-button>
+        <link-button href="/signup" sm outline-secondary class="ms-2">Register New User</link-button>
       </div>
     </div>
   </div>

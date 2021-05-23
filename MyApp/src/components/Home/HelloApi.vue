@@ -14,7 +14,7 @@ import { Hello } from '../../shared/dtos';
 @Component
 export class HelloApi extends Vue {
     @Prop() public name: string;
-    public txtName: string = this.name;
+    public txtName: string = '';
     public result: string = '';
 
     public mounted() {
