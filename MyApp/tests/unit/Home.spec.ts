@@ -14,7 +14,7 @@ describe('Home.vue', () => {
         expect(wrapper.vm.result).toBe('');
     });
 
-    it ('should render correct contents', async (done) => {
+    it ('should render correct contents', async () => {
         const wrapper = shallowMount(HelloApi, {
             propsData: { name: 'Vue' },
         });
@@ -26,7 +26,6 @@ describe('Home.vue', () => {
         await wrapper.setData({result: 'Bye Vue'});
 
         expect(vm.$el.querySelector('h3.result')!.textContent).toBe('Bye Vue');
-        done();
     });
 
 });

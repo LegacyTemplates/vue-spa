@@ -3,7 +3,7 @@ import { JsonServiceClient, GetNavItemsResponse, UserAttributes, IAuthSession } 
 
 declare let global: any; // populated from package.json/jest
 
-export const client = new JsonServiceClient('/');
+export const client = new JsonServiceClient(global.testURL || '/');
 
 export {
     errorResponse, errorResponseExcept,
