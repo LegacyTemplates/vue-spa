@@ -2,10 +2,7 @@ import 'node-fetch';
 import { Input } from '@servicestack/vue';
 import Home from '@/components/Home/index.vue';
 import HelloApi from '@/components/Home/HelloApi.vue';
-
 import { shallowMount } from '@vue/test-utils';
-
-
 
 describe('Home.vue', () => {
 
