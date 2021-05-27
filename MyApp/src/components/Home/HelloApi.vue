@@ -1,7 +1,7 @@
 ﻿<template>
     <div class="form-group">
         <v-input placeholder="Your name" v-model="txtName" />
-        <h3 class="result">{{ result }}</h3>
+        <h3 class="result pt-2">{{ result }}</h3>
     </div>
 </template>
 
