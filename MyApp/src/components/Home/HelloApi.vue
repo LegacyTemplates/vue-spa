@@ -42,7 +42,6 @@ export default HelloApi;
 @import '../../app.scss';
 
 .result {
-    margin: 10px;
     color: darken($navbar-background, 10%);
 }
 </style>
