@@ -1,6 +1,6 @@
 # vue-spa
 
-.NET 5.0 Vue Webpack App Template
+.NET 6.0 Vue Webpack App Template
 
 [![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/vue-spa.png)](http://vue-spa.web-templates.io/)
 
