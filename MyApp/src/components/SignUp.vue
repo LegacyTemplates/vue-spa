@@ -79,7 +79,7 @@ export class SignUp extends Vue {
 
             redirect(Routes.Home);
 
-        } catch (e) {
+        } catch (e: any) {
             this.responseStatus = e.responseStatus || e;
         } finally {
             this.loading = false;

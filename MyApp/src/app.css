@@ -1,21 +1,19 @@
-$navbar-background: #41B883;
-$emphasis-text-color: #35495E;
-
-body {
-}
 .form-check.form-control {
     padding-left: 1.75rem;
     height: auto;
 }
 .navbar {
     border-radius: 0;
-    background: $navbar-background !important;
+    background: #41B883 !important;
 }
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
+.text-green	{
+    color: #41B883;
+}
 a {
-    color: $emphasis-text-color;
+    color: #35495E;
 }
 .nav-button-group {
     display: flex;

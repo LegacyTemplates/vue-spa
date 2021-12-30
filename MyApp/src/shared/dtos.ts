@@ -1,6 +1,6 @@
 /* Options:
-Date: 2021-02-09 19:07:52
-Version: 5.105
+Date: 2021-12-30 13:40:05
+Version: 5.133
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
 
@@ -165,7 +165,7 @@ export class UnAssignRolesResponse
 }
 
 // @DataContract
-export class RegisterResponse
+export class RegisterResponse implements IHasSessionId, IHasBearerToken
 {
     // @DataMember(Order=1)
     public userId: string;
@@ -186,9 +186,15 @@ export class RegisterResponse
     public refreshToken: string;
 
     // @DataMember(Order=7)
-    public responseStatus: ResponseStatus;
+    public roles: string[];
 
     // @DataMember(Order=8)
+    public permissions: string[];
+
+    // @DataMember(Order=9)
+    public responseStatus: ResponseStatus;
+
+    // @DataMember(Order=10)
     public meta: { [index: string]: string; };
 
     public constructor(init?: Partial<RegisterResponse>) { (Object as any).assign(this, init); }
@@ -203,6 +209,7 @@ export class Hello implements IReturn<HelloResponse>
     public constructor(init?: Partial<Hello>) { (Object as any).assign(this, init); }
     public createResponse() { return new HelloResponse(); }
     public getTypeName() { return 'Hello'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/auth")
@@ -252,9 +259,6 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     // @DataMember(Order=15)
     public cnonce: string;
 
-    // @DataMember(Order=16)
-    public useTokenCookie?: boolean;
-
     // @DataMember(Order=17)
     public accessToken: string;
 
@@ -270,6 +274,7 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public constructor(init?: Partial<Authenticate>) { (Object as any).assign(this, init); }
     public createResponse() { return new AuthenticateResponse(); }
     public getTypeName() { return 'Authenticate'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/assignroles")
@@ -291,6 +296,7 @@ export class AssignRoles implements IReturn<AssignRolesResponse>, IPost
     public constructor(init?: Partial<AssignRoles>) { (Object as any).assign(this, init); }
     public createResponse() { return new AssignRolesResponse(); }
     public getTypeName() { return 'AssignRoles'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/unassignroles")
@@ -312,6 +318,7 @@ export class UnAssignRoles implements IReturn<UnAssignRolesResponse>, IPost
     public constructor(init?: Partial<UnAssignRoles>) { (Object as any).assign(this, init); }
     public createResponse() { return new UnAssignRolesResponse(); }
     public getTypeName() { return 'UnAssignRoles'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/register")
@@ -351,5 +358,6 @@ export class Register implements IReturn<RegisterResponse>, IPost
     public constructor(init?: Partial<Register>) { (Object as any).assign(this, init); }
     public createResponse() { return new RegisterResponse(); }
     public getTypeName() { return 'Register'; }
+    public getMethod() { return 'POST'; }
 }
 

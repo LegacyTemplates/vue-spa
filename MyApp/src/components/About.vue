@@ -1,6 +1,6 @@
 <template>
   <div id="about">
-    <div class="svg-users svg-8x ml-2"/>
+    <Icon icon="raphael:users" class="svg-8x ml-2 text-green" />
     <h3>{{message}}</h3>
   </div>
 </template>

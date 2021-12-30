@@ -1,6 +1,6 @@
 <template>
   <div id="admin" class="text-center">
-      <div class="svg-female-business svg-8x ml-2"/>
+      <Icon icon="mdi:shield-account" class="svg-8x ml-2 text-green" />
       <p class="my-2">
           {{user.displayName}}
       </p>

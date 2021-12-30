@@ -82,7 +82,7 @@ export class SignIn extends Vue {
 
             redirect(this.$route.query.redirect as string || Routes.Home);
 
-        } catch (e) {
+        } catch (e: any) {
             this.responseStatus = e.responseStatus || e;
         } finally {
             this.loading = false;

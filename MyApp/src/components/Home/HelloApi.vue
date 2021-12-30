@@ -38,10 +38,8 @@ export class HelloApi extends Vue {
 export default HelloApi;
 </script>
 
-<style lang="scss">
-@import '../../app.scss';
-
+<style>
 .result {
-    color: darken($navbar-background, 10%);
+    color: #41B883;
 }
 </style>

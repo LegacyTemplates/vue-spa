@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-between">
     <div class="col col-1">
-      <i class="svg-home svg-9x"></i>
+      <Icon icon="mdi:home" class="svg-9x text-green" />
     </div>
     <div class="col col-4 mt-4">
       <HelloApi :name="name" />

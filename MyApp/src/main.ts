@@ -1,13 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './app.scss';
+import './app.css';
 import 'es6-shim';
-
 import Vue from 'vue';
+import { Icon } from '@iconify/vue2';
+import App from './App.vue'
 
 import Controls from '@servicestack/vue';
 Vue.use(Controls);
 
-import App from './App.vue';
+Vue.component('Icon', Icon)
+
 
 import { router } from './shared/router';
 
