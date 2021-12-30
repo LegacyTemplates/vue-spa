@@ -27,8 +27,7 @@ public class AppHost : AppHostBase, IHostingStartup
             EnableSpaFallback = true
         }); 
 
-        SetConfig(new HostConfig
-        {
+        SetConfig(new HostConfig {
             AddRedirectParamsToQueryString = true,
         });
     }
