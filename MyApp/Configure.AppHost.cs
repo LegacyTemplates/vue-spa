@@ -25,5 +25,12 @@ public class AppHost : AppHostBase, IHostingStartup
         SetConfig(new HostConfig {
             AddRedirectParamsToQueryString = true,
         });
+        
+        Plugins.Add(new CorsFeature(allowOriginWhitelist:new[]{ 
+            "http://localhost:5000",
+            "http://localhost:3000",
+            "http://localhost:8080",
+            "https://localhost:5001",
+        }, allowCredentials:true));
     }
 }
